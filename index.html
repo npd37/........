@@ -46,7 +46,9 @@ html, body { overflow-x: hidden; }
 .service-section h4 { margin-bottom: 8px; font-size: 18px; color: #0a1a33; }
 .service-section ul { padding-left: 20px; margin: 0; }
 .service-section ul li { margin-bottom: 4px; font-size:14px; line-height:1.5; }
-</style>
+.learn-more-btn{ margin-top:12px; background:#0a1a33; color:white; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; }
+.hidden{ display:none; }
+  </style>
 </head>
 <body>
   <header>
@@ -87,35 +89,41 @@ html, body { overflow-x: hidden; }
       <div class="card">
         <img src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=900&q=80" />
         <h3>CFO Services</h3>
-        <div class="service-section">
-          <h4>Preparation and Review of Financial Statements</h4>
-          <ul>
-            <li>Standalone and consolidated financial statements (SFRS)</li>
-            <li>Conversion from US GAAP to SFRS</li>
-          </ul>
-        </div>
-        <div class="service-section">
-          <h4>Audit Coordination and Liaison</h4>
-          <ul>
-            <li>Audit planning and coordination</li>
-            <li>Preparation of schedules and supporting documents</li>
-            <li>Resolution of audit queries</li>
-            <li>Finalization and sign-off of statements</li>
-          </ul>
-        </div>
-        <div class="service-section">
-          <h4>Liquidity and Cashflow Planning</h4>
-          <ul>
-            <li>Manage payments</li>
-            <li>Foreign exchange risk management</li>
-          </ul>
+        <button class="learn-more-btn" onclick="toggleInfo('info1')">Learn More</button>
+        <div id="info1" class="hidden">
+          <div class="service-section">
+            <h4 onclick="toggleInfo('prep1')" style="cursor:pointer;">Preparation and Review of Financial Statements ▾</h4>
+            <ul id="prep1" class="hidden">
+              <li>Standalone and consolidated financial statements (SFRS)</li>
+              <li>Conversion from US GAAP to SFRS</li>
+            </ul>
+          </div>
+
+          <div class="service-section">
+            <h4 onclick="toggleInfo('audit1')" style="cursor:pointer; font-weight:700; color:#0a1a33;">Audit Coordination and Liaison ▾</h4>
+            <ul id="audit1" class="hidden">
+              <li>Audit planning and coordination</li>
+              <li>Preparation of schedules and supporting documents</li>
+              <li>Resolution of audit queries</li>
+              <li>Finalization and sign-off of statements</li>
+            </ul>
+          </div>
+
+          <div class="service-section">
+            <h4 onclick="toggleInfo('liq1')" style="cursor:pointer; font-weight:700; color:#0a1a33;">Liquidity and Cashflow Planning ▾</h4>
+            <ul id="liq1" class="hidden">
+              <li>Manage payments</li>
+              <li>Foreign exchange risk management</li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <div class="card">
         <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=80" />
         <h3>Regulatory Compliance</h3>
-        <div class="service-section">
+        <button class="learn-more-btn" onclick="toggleInfo('info2')">Learn More</button>
+        <div id="info2" class="hidden">
           <ul>
             <li>Income tax filing</li>
             <li>GST registration and filing</li>
@@ -131,7 +139,8 @@ html, body { overflow-x: hidden; }
       <div class="card">
         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80" />
         <h3>Accounting Services</h3>
-        <div class="service-section">
+        <button class="learn-more-btn" onclick="toggleInfo('info3')">Learn More</button>
+        <div id="info3" class="hidden">
           <ul>
             <li>Bookkeeping and management accounts</li>
             <li>Bank and intercompany reconciliations</li>
@@ -164,5 +173,12 @@ html, body { overflow-x: hidden; }
   </section>
 
   <footer>© 2025 Anay Global Pte. Ltd. — Your partner in financial growth and compliance excellence.</footer>
+
+  <script>
+    function toggleInfo(id){
+      const box = document.getElementById(id);
+      box.classList.toggle('hidden');
+    }
+  </script>
 </body>
 </html>
